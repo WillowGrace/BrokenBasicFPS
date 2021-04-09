@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Magic : MonoBehaviour
 {
+    int damagePerShot = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,11 @@ public class Magic : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        other.gameObject.GetComponent<Health>().TakeDamage(damagePerShot);
+
     }
 }

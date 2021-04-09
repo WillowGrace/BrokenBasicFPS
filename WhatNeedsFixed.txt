@@ -1,24 +1,14 @@
 Basic FPS Notes (Issuse I want to Fix)
 If these are still not fixed when turned in I would like help to fix them so I dont make these mistakes again.
 
--jump is broken
+fixed -jump is broken
 when line is un commented the player will contanly jump
 
--Cammera is broken
+fixed -Cammera is broken
 what is even happening with the background? did I attached the script to the wrong thing.
 
--Shoot
+can shoot but "bulet" is still not atached and no damage is done-Shoot
 tried reporpouseing code from another project(horble idea in this case)
 
--magic
-was going to wait ontill Shoot was fixed
+changed - is now what is being shoot at - still broken-magic
 
-If (target is ItemA )
-{
- magic += 10;
-}
-else if (target is ItemB)
-{
- magic -= 5;
-}
-raycast tell if target is A or B

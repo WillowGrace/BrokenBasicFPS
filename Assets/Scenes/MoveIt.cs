@@ -26,10 +26,10 @@ public class MoveIt : MonoBehaviour
 
         _groundedPlayer = _controller.isGrounded;
 
-       //if (_groundedPlayer && _velocity.y < 0)
-      // {
-       ///     Jump();
-      // }
+      if (Input.GetButton("Jump") && _groundedPlayer)
+      {
+          Jump();
+      }
 
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         _controller.Move(move * Time.deltaTime * _moveSpeed);

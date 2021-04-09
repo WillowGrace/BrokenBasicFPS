@@ -12,14 +12,10 @@ public class Shoot : MonoBehaviour
     float timer;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
-    int shootableMask;
-    LineRenderer gunLine;
 
 
     void Awake()
     {
-        shootableMask = LayerMask.GetMask("Shootable");
-        gunLine = GetComponent<LineRenderer>();
     }
 
 
@@ -30,6 +26,7 @@ public class Shoot : MonoBehaviour
         if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shooting();
+            Debug.Log("Pew");
         }
 
     }
@@ -41,24 +38,19 @@ public class Shoot : MonoBehaviour
     {
         timer = 0f;
 
-        //gunLine.enabled = true;
-        gunLine.SetPosition(0, transform.position);
 
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward;
 
-        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        if (Physics.Raycast(shootRay, out shootHit, range))
         {
             Health Health = shootHit.collider.GetComponent<Health>();
             if (Health != null)
             {
                 Health.TakeDamage(damagePerShot);
             }
-           // gunLine.SetPosition(1,shootHit.point);
         }
-        else
-        {
-           // gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
-        }
+     
     }
+
 }
